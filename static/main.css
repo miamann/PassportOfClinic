@@ -91,6 +91,6 @@ button:hover {
 
 .input-group input:focus,
 .input-group select:focus {
-  border-color: #007bff; /* Цвет рамки при фокусировке */
-  outline-color: #007bff; /* Цвет контура при фокусировке */
+  border-color: #007bff; 
+  outline-color: #007bff; 
 }

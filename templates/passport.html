@@ -24,7 +24,6 @@
         <form method="POST" action="{% url 'save_passport' %}">
             {% csrf_token %}
             
-            <!-- General Information Section -->
             <div class="form-section">
                 <label for="org_name">Наименование МО:</label>
                 <input type="text" id="org_name" name="org_name" required>
@@ -36,7 +35,6 @@
                 <input type="text" id="org_code" name="org_code" required>
             </div>
             
-            <!-- Identification Section -->
             <div class="form-section">
                 <h2 onclick="toggleSection('identification')">Идентификация</h2>
                 <div id="identification" style="display: block;">
@@ -139,7 +137,6 @@
                 </div>
             </div>
             
-            <!-- OMS Section -->
             <div class="form-section">
                 <h2 onclick="toggleSection('oms')">ОМС (Обязательное медицинское страхование)</h2>
                 <div id="oms" style="display: none;">
@@ -189,7 +186,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Example entry -->
                             <tr>
                                 <td>435345</td>
                                 <td>11.07.2014</td>
@@ -203,7 +199,6 @@
                 </div>
             </div>
             
-            <!-- LLO Section -->
             <div class="form-section">
                 <h2 onclick="toggleSection('llo')">ЛЛО (Льготное лекарственное обеспечение)</h2>
                 <div id="llo" style="display: none;">
@@ -226,7 +221,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Example entry -->
                             <tr>
                                 <td>11.10.2007</td>
                                 <td></td>
@@ -236,7 +230,6 @@
                 </div>
             </div>
             
-            <!-- DMS Section -->
             <div class="form-section">
                 <h2 onclick="toggleSection('dms')">ДМС (Добровольное медицинское страхование)</h2>
                 <div id="dms" style="display: none;">
@@ -260,7 +253,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Example entry -->
                             <tr>
                                 <td>01.01.2010</td>
                                 <td>31.03.2010</td>

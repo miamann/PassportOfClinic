@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/passport/', include('passport.api.urls')),
-    path('', include('account.urls')),  # Добавляем маршрутизацию для приложения account
+    path('', include('account.urls')), 
 ]

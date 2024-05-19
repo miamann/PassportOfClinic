@@ -1,6 +1,4 @@
-/* styles.css */
 
-/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -16,7 +14,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Заголовки */
 h1 {
     font-size: 2em;
     color: #333333;
@@ -31,7 +28,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* Формы */
 form {
     margin-top: 20px;
 }
@@ -76,7 +72,6 @@ button:hover {
     background-color: #007bff;
 }
 
-/* Навигация */
 .navigation {
     text-align: center;
     margin-top: 20px;
@@ -96,7 +91,6 @@ button:hover {
     background-color: #007bff;
 }
 
-/* Секции справочной информации */
 .section {
     margin-bottom: 20px;
 }
@@ -113,7 +107,6 @@ button:hover {
     margin-left: 20px;
 }
 
-/* Таблицы */
 .table-container {
     margin-top: 20px;
 }
