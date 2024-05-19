@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Справочная информация</title>
+    <link rel="stylesheet" href="{% static 'reference_info.css' %}">
+    <script>
+        function toggleForm(sectionId) {
+            var form = document.getElementById(sectionId + '-form');
+            form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Справочная информация</h1>
+        <div class="section">
+            <h2>Лицензии МО</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('licenses')">Добавить лицензию</button>
+                <form id="licenses-form" class="edit-form" style="display: none;">
+                    <label for="license-number">Номер лицензии:</label>
+                    <input type="text" id="license-number" name="license-number">
+                    <label for="license-issue-date">Дата выдачи:</label>
+                    <input type="date" id="license-issue-date" name="license-issue-date">
+                    <label for="license-reg-number">Регистрационный номер:</label>
+                    <input type="text" id="license-reg-number" name="license-reg-number">
+                    <label for="license-start-date">Начало действия:</label>
+                    <input type="date" id="license-start-date" name="license-start-date">
+                    <label for="license-end-date">Окончание действия:</label>
+                    <input type="date" id="license-end-date" name="license-end-date">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Номер лицензии</th>
+                            <th>Дата выдачи</th>
+                            <th>Регистрационный номер</th>
+                            <th>Начало действия</th>
+                            <th>Окончание действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Расчетный счет</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('account')">Добавить расчетный счет</button>
+                <form id="account-form" class="edit-form" style="display: none;">
+                    <label for="account-name">Наименование:</label>
+                    <input type="text" id="account-name" name="account-name">
+                    <label for="bank-name">Банк:</label>
+                    <input type="text" id="bank-name" name="bank-name">
+                    <label for="account-number">Номер счета:</label>
+                    <input type="text" id="account-number" name="account-number">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Наименование</th>
+                            <th>Банк</th>
+                            <th>Номер счета</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Информационная система</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('infosystem')">Добавить информационную систему</button>
+                <form id="infosystem-form" class="edit-form" style="display: none;">
+                    <label for="infosystem-name">Наименование ИС:</label>
+                    <input type="text" id="infosystem-name" name="infosystem-name">
+                    <label for="infosystem-type">Тип ИС:</label>
+                    <input type="text" id="infosystem-type" name="infosystem-type">
+                    <label for="infosystem-dev">Наименование разработчика:</label>
+                    <input type="text" id="infosystem-dev" name="infosystem-dev">
+                    <label for="infosystem-date">Дата внедрения:</label>
+                    <input type="date" id="infosystem-date" name="infosystem-date">
+                    <label for="infosystem-cost">Стоимость ИС:</label>
+                    <input type="text" id="infosystem-cost" name="infosystem-cost">
+                    <label for="infosystem-support">Признак сопровождения:</label>
+                    <select id="infosystem-support" name="infosystem-support">
+                        <option value="yes">Да</option>
+                        <option value="no">Нет</option>
+                    </select>
+                    <label for="infosystem-support-cost">Стоимость сопровождения:</label>
+                    <input type="text" id="infosystem-support-cost" name="infosystem-support-cost">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Наименование ИС</th>
+                            <th>Тип ИС</th>
+                            <th>Наименование разработчика</th>
+                            <th>Дата внедрения</th>
+                            <th>Стоимость ИС</th>
+                            <th>Признак сопровождения</th>
+                            <th>Стоимость сопровождения</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Специализация организации</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('specialization')">Добавить специализацию</button>
+                <form id="specialization-form" class="edit-form" style="display: none;">
+                    <label for="spec-code">Код МКБ-10:</label>
+                    <input type="text" id="spec-code" name="spec-code">
+                    <label for="spec-profile">Медицинский профиль:</label>
+                    <input type="text" id="spec-profile" name="spec-profile">
+                    <label for="spec-license">Номер лицензии:</label>
+                    <input type="text" id="spec-license" name="spec-license">
+                    <label for="spec-recovery">Признак наличия отделения долечивания:</label>
+                    <select id="spec-recovery" name="spec-recovery">
+                        <option value="yes">Да</option>
+                        <option value="no">Нет</option>
+                    </select>
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Медицинские услуги</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('medservices')">Добавить медицинскую услугу</button>
+                <form id="medservices-form" class="edit-form" style="display: none;">
+                    <label for="service-name">Наименование услуги:</label>
+                    <input type="text" id="service-name" name="service-name">
+                    <label for="service-license">Номер лицензии:</label>
+                    <input type="text" id="service-license" name="service-license">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Наименование услуги</th>
+                            <th>Номер лицензии на конкретную услугу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Медицинские технологии</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('medtech')">Добавить медицинскую технологию</button>
+                <form id="medtech-form" class="edit-form" style="display: none;">
+                    <label for="tech-name">Наименование технологии:</label>
+                    <input type="text" id="tech-name" name="tech-name">
+                    <label for="tech-class">Класс технологии:</label>
+                    <input type="text" id="tech-class" name="tech-class">
+                    <label for="tech-building">Идентификатор здания:</label>
+                    <input type="text" id="tech-building" name="tech-building">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Наименование медицинской технологии</th>
+                            <th>Класс технологии</th>
+                            <th>Идентификатор здания</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Направления оказания медицинской помощи</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('medhelp')">Добавить направление оказания помощи</button>
+                <form id="medhelp-form" class="edit-form" style="display: none;">
+                    <label for="help-code">Код услуги:</label>
+                    <input type="text" id="help-code" name="help-code">
+                    <label for="help-name">Наименование услуги:</label>
+                    <input type="text" id="help-name" name="help-name">
+                    <label for="help-start-date">Дата начала оказания услуги:</label>
+                    <input type="date" id="help-start-date" name="help-start-date">
+                    <label for="help-end-date">Дата окончания оказания услуги:</label>
+                    <input type="date" id="help-end-date" name="help-end-date">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Код услуги</th>
+                            <th>Наименование услуги</th>
+                            <th>Дата начала оказания услуги</th>
+                            <th>Дата окончания оказания услуги</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Филиалы</h2>
+            <div class="table-container">
+                <button class="add-button" onclick="toggleForm('branches')">Добавить филиал</button>
+                <form id="branches-form" class="edit-form" style="display: none;">
+                    <label for="branch-name">Наименование филиала:</label>
+                    <input type="text" id="branch-name" name="branch-name">
+                    <label for="branch-short-name">Краткое наименование:</label>
+                    <input type="text" id="branch-short-name" name="branch-short-name">
+                    <label for="branch-code">Код ОКТМО:</label>
+                    <input type="text" id="branch-code" name="branch-code">
+                    <label for="branch-start-date">Дата начала:</label>
+                    <input type="date" id="branch-start-date" name="branch-start-date">
+                    <label for="branch-end-date">Дата окончания:</label>
+                    <input type="date" id="branch-end-date" name="branch-end-date">
+                    <button type="submit">Сохранить</button>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Наименование филиала</th>
+                            <th>Краткое наименование филиала</th>
+                            <th>Код ОКТМО</th>
+                            <th>Дата начала</th>
+                            <th>Дата окончания</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

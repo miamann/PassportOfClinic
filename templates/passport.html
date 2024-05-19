@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Паспорт МО</title>
+    <link rel="stylesheet" href="{% static 'passport.css' %}">
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.style.display = (section.style.display === "none") ? "block" : "none";
+        }
+        
+        function toggleForm(formId) {
+            const form = document.getElementById(formId);
+            form.style.display = (form.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Паспорт МО</h1>
+        <form method="POST" action="{% url 'save_passport' %}">
+            {% csrf_token %}
+            
+            <!-- General Information Section -->
+            <div class="form-section">
+                <label for="org_name">Наименование МО:</label>
+                <input type="text" id="org_name" name="org_name" required>
+                
+                <label for="short_name">Краткое наименование МО:</label>
+                <input type="text" id="short_name" name="short_name" required>
+                
+                <label for="org_code">Код ОУЗ:</label>
+                <input type="text" id="org_code" name="org_code" required>
+            </div>
+            
+            <!-- Identification Section -->
+            <div class="form-section">
+                <h2 onclick="toggleSection('identification')">Идентификация</h2>
+                <div id="identification" style="display: block;">
+                    <div class="form-row">
+                        <div class="form-column">
+                            <label for="start_date">Дата начала деятельности:</label>
+                            <input type="date" id="start_date" name="start_date" required>
+                            
+                            <label for="end_date">Дата закрытия:</label>
+                            <input type="date" id="end_date" name="end_date">
+                            
+                            <label for="registration_body">Орган:</label>
+                            <input type="text" id="registration_body" name="registration_body" required>
+                            
+                            <label for="registration_date">Дата регистрации:</label>
+                            <input type="date" id="registration_date" name="registration_date" required>
+                            
+                            <label for="email">Адрес электронной почты:</label>
+                            <input type="email" id="email" name="email">
+                            
+                            <label for="website">Адрес сайта:</label>
+                            <input type="url" id="website" name="website">
+                            
+                            <label for="phone">Телефон:</label>
+                            <input type="tel" id="phone" name="phone">
+                            
+                            <label for="working_hours">Время работы:</label>
+                            <input type="text" id="working_hours" name="working_hours">
+                            
+                            <label for="name_for_lv">Наименование МО для ЛВН:</label>
+                            <input type="text" id="name_for_lv" name="name_for_lv">
+                            
+                            <label for="address_for_lv">Адрес МО для ЛВН:</label>
+                            <input type="text" id="address_for_lv" name="address_for_lv">
+
+                            <label for="reg_document_name">Наименование регистрационного документа:</label>
+                            <input type="text" id="reg_document_name" name="reg_document_name" required>
+                            
+                            <label for="reg_number">Рег. Номер:</label>
+                            <input type="text" id="reg_number" name="reg_number" required>
+                            
+                            <label for="pf_reg_number">Рег. Номер в ПФ:</label>
+                            <input type="text" id="pf_reg_number" name="pf_reg_number" required>
+                            
+                            <label for="founder">Учредитель:</label>
+                            <input type="text" id="founder" name="founder" required>
+                            
+                            <label for="mo_type">Тип МО по возрасту:</label>
+                            <input type="text" id="mo_type" name="mo_type">
+                                                    </div>
+                        <div class="form-column">
+                            
+                            <label for="legal_address">Юридический адрес:</label>
+                            <input type="text" id="legal_address" name="legal_address" required>
+                            
+                            <label for="actual_address">Фактический адрес:</label>
+                            <input type="text" id="actual_address" name="actual_address" required>
+                            
+                            <label for="okfs">ОКФС:</label>
+                            <input type="text" id="okfs" name="okfs" required>
+                            
+                            <label for="okopf">ОКОПФ:</label>
+                            <input type="text" id="okopf" name="okopf" required>
+                            
+                            <label for="okpo">ОКПО:</label>
+                            <input type="text" id="okpo" name="okpo">
+                            
+                            <label for="inn">ИНН:</label>
+                            <input type="text" id="inn" name="inn" required>
+                            
+                            <label for="ogrn">ОГРН:</label>
+                            <input type="text" id="ogrn" name="ogrn" required>
+                            
+                            <label for="okdp">ОКДП:</label>
+                            <input type="text" id="okdp" name="okdp">
+                            
+                            <label for="okved">ОКВЭД:</label>
+                            <input type="text" id="okved" name="okved" required>
+                            
+                            <label for="district_coefficient">Районный коэффициент:</label>
+                            <input type="text" id="district_coefficient" name="district_coefficient">
+                            
+                            <label for="onmsz_code">Код ОНМСЗ:</label>
+                            <input type="text" id="onmsz_code" name="onmsz_code">
+                            
+                            <label for="organization_form">Организационная форма:</label>
+                            <input type="text" id="organization_form" name="organization_form" required>
+                            
+                            <label for="territorial_feature">Территориальный признак:</label>
+                            <input type="text" id="territorial_feature" name="territorial_feature" required>
+                            
+                            <label for="main_building">Основное здание:</label>
+                            <input type="text" id="main_building" name="main_building">
+                            
+                            <label for="special_status">Особый статус:</label>
+                            <input type="text" id="special_status" name="special_status">
+                        </div>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </div>
+            </div>
+            
+            <!-- OMS Section -->
+            <div class="form-section">
+                <h2 onclick="toggleSection('oms')">ОМС (Обязательное медицинское страхование)</h2>
+                <div id="oms" style="display: none;">
+                    <form id="oms-period-form" class="edit-form" style="display: none;">
+                        <label for="oms_start_date">Дата включения:</label>
+                        <input type="date" id="oms_start_date" name="oms_start_date" required>
+                        
+                        <label for="oms_end_date">Дата исключения:</label>
+                        <input type="date" id="oms_end_date" name="oms_end_date">
+                        
+                        <button type="submit">Сохранить</button>
+                    </form>
+                    
+                    <h3>Договоры</h3>
+                    <button class="add-button" type="button" onclick="toggleForm('oms-contract-form')">Добавить договор</button>
+                    <form id="oms-contract-form" class="edit-form" style="display: none;">
+                        <label for="oms_contract_number">Номер договора:</label>
+                        <input type="text" id="oms_contract_number" name="oms_contract_number">
+                        
+                        <label for="oms_contract_date">Дата договора:</label>
+                        <input type="date" id="oms_contract_date" name="oms_contract_date">
+                        
+                        <label for="oms_organization">Организация:</label>
+                        <input type="text" id="oms_organization" name="oms_organization">
+                        
+                        <label for="oms_territory_code">Код территории МО:</label>
+                        <input type="text" id="oms_territory_code" name="oms_territory_code">
+                        
+                        <label for="oms_registration_number">Регистрационный номер:</label>
+                        <input type="text" id="oms_registration_number" name="oms_registration_number">
+                        
+                        <label for="oms_contract_note">Примечание к договору:</label>
+                        <input type="text" id="oms_contract_note" name="oms_contract_note">
+                        
+                        <button type="submit">Сохранить</button>
+                    </form>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Номер договора</th>
+                                <th>Дата договора</th>
+                                <th>Организация</th>
+                                <th>Код территории МО</th>
+                                <th>Регистрационный номер</th>
+                                <th>Примечание к договору</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example entry -->
+                            <tr>
+                                <td>435345</td>
+                                <td>11.07.2014</td>
+                                <td>Clement Clarke Inter...</td>
+                                <td>4343</td>
+                                <td>345</td>
+                                <td>34534</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- LLO Section -->
+            <div class="form-section">
+                <h2 onclick="toggleSection('llo')">ЛЛО (Льготное лекарственное обеспечение)</h2>
+                <div id="llo" style="display: none;">
+                    <button class="add-button" type="button" onclick="toggleForm('llo-period-form')">Добавить период</button>
+                    <form id="llo-period-form" class="edit-form" style="display: none;">
+                        <label for="llo_start_date">Дата включения:</label>
+                        <input type="date" id="llo_start_date" name="llo_start_date" required>
+                        
+                        <label for="llo_end_date">Дата исключения:</label>
+                        <input type="date" id="llo_end_date" name="llo_end_date">
+                        
+                        <button type="submit">Сохранить</button>
+                    </form>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Дата включения</th>
+                                <th>Дата исключения</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example entry -->
+                            <tr>
+                                <td>11.10.2007</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- DMS Section -->
+            <div class="form-section">
+                <h2 onclick="toggleSection('dms')">ДМС (Добровольное медицинское страхование)</h2>
+                <div id="dms" style="display: none;">
+                    <button class="add-button" type="button" onclick="toggleForm('dms-period-form')">Добавить период</button>
+                    <form id="dms-period-form" class="edit-form" style="display: none;">
+                        <label for="dms_start_date">Дата включения:</label>
+                        <input type="date" id="dms_start_date" name="dms_start_date" required>
+                        
+                        <label for="dms_end_date">Дата исключения:</label>
+                        <input type="date" id="dms_end_date" name="dms_end_date">
+                        
+                        <button type="submit">Сохранить</button>
+                    </form>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Дата включения</th>
+                                <th>Дата исключения</th>
+                                <th>Номер договора</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example entry -->
+                            <tr>
+                                <td>01.01.2010</td>
+                                <td>31.03.2010</td>
+                                <td>686</td>
+                            </tr>
+                            <tr>
+                                <td>01.01.2011</td>
+                                <td>31.12.2011</td>
+                                <td>123</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <a href="{% url 'reference_info' %}">Перейти к Справочной информации</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

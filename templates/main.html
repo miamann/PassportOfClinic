@@ -4,7 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Авторизация</title>
+    <script>
+        function togglePassword(imgElement) {
+            const passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                imgElement.src = "https://cdn-icons-png.flaticon.com/512/7191/7191313.png"; // Show password icon
+            } else {
+                passwordInput.type = "password";
+                imgElement.src = "https://cdn-icons-png.flaticon.com/512/709/709612.png"; // Hide password icon
+            }
+        }
+    </script>
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
     <style>
     @font-face {
@@ -25,12 +37,14 @@
         </div>
         <div class="right-container">
             <h2>МИС. Паспорт МО</h2>
+            <form method="post" action="{% url 'passport' %}">
+                {% csrf_token %}
                 <div class="input-group">
                     <input type="text" placeholder="Логин" name="login">
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Пароль" name="password">
-                    <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Показать/скрыть пароль">
+                    <input type="password" id="password" placeholder="Пароль" name="password">
+                    <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Показать/скрыть пароль" onclick="togglePassword(this)" style="cursor: pointer;">
                 </div>
                 <button type="submit">Войти</button>
             </form>
