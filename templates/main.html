@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <style>
+    @font-face {
+      font-family: 'Philosopher';
+      src: url('fonts/Philosopher/Philosopher-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+      font-family: 'Roboto';
+      src: url('fonts/Roboto/Roboto.ttf') format('truetype');
+  }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-container">
+            <img src="https://www.lvph-lm.be/wp-content/uploads/ziekenhuis.jpg" alt="Hospital">
+        </div>
+        <div class="right-container">
+            <h2>МИС. Паспорт МО</h2>
+                <div class="input-group">
+                    <input type="text" placeholder="Логин" name="login">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Пароль" name="password">
+                    <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Показать/скрыть пароль">
+                </div>
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
